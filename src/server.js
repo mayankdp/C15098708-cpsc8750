@@ -92,19 +92,19 @@ app.get("/trivia", async (req, res) => {
   // console.log(randomNum);
   // console.log(content.results[0]);
 
-  res.render('trivia', {
-    question: content.results[0].question,
-    answers: options,
-    category: content.results[0].category,
-    difficulty: content.results[0].difficulty,
-  });
-
   const answerLinks = options.map(answer => {
     return `<a href="javascript:alert('${
       answer === correctAnswer ? 'Correct!' : 'Incorrect, Please Try Again!'
       }')">${answer}</a>
     }`
   })
+
+  res.render('trivia', {
+    question: content.results[0].question,
+    answers: answerLinks,
+    category: content.results[0].category,
+    difficulty: content.results[0].difficulty,
+  });
 
   nextQuestion++;
 });
