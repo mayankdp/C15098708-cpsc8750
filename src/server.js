@@ -74,24 +74,24 @@ app.get("/trivia", async (req, res) => {
     options[2] = otherOption2;
     options[3] = otherOption3;
   } else if (randomNum == 1){
-    options[1] = otherOption1;
-    options[0] = correctAnswer;
+    options[0] = otherOption1;
+    options[1] = correctAnswer;
     options[2] = otherOption2;
     options[3] = otherOption3;
   } else if (randomNum == 2){
-    options[2] = otherOption2;
+    options[0] = otherOption2;
     options[1] = otherOption1;
-    options[0] = correctAnswer;
+    options[2] = correctAnswer;
     options[3] = otherOption3;
   } else if (randomNum == 3){
-    options[3] = otherOption3;
-    options[2] = otherOption2;
-    options[1] = otherOption1;
-    options[0] = correctAnswer;
+    options[0] = otherOption3;
+    options[1] = otherOption2;
+    options[2] = otherOption1;
+    options[3] = correctAnswer;
   }
-  // console.log(randomNum);
-  // console.log(content.results[0]);
 
+  // console.log(options);
+  // console.log(randomNum);
   const answerLinks = options.map(answer => {
     return `<a href="javascript:alert('${
       answer === correctAnswer ? 'Correct!' : 'Incorrect, Please Try Again!'
